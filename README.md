@@ -3,7 +3,9 @@
 ## 简介
 此项目  在 [仓库地址](https://github.com/Isaac20231231/send_msg) 基础上调整
      
-ipad 协议 已经完成, 后面整理放出来
+支持 ipad 协议
+
+首次安装后需要  执行执行   更新群成员\和更新好友列表
 
 
 `file_api` 插件用于[chatgpt-on-wechat](https://github.com/hanfangyuan4396/dify-on-wechat)项目。<br>
@@ -28,14 +30,14 @@ python3.11 目前发现有低版本不兼容的问题，建议使用大于3.10�
 #### 第二种:微信执行命令
 
    ```sh
-   #installp https://github.com/wang-zhibo/send_msg.git
+   #installp https://github.com/wang-zhibo/send_msg_ipad.git
    #scanp
    ```
 
 #### 第三种:进入`plugins` 目录克隆
 
 ```sh
-git clone https://github.com/wang-zhibo/send_msg.git
+git clone https://github.com/wang-zhibo/send_msg_ipad.git
 ```
 
 ### 注意事项
