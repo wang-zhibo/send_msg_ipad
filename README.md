@@ -10,6 +10,8 @@ itchat和ntchat和ipad
 如
 <img src="update_list.jpg" width="600" >
 
+当群成员或者好友列表有更改时 请执行  更新群成员\和更新好友列表 刷新通讯录信息
+
 
 `file_api` 插件用于[chatgpt-on-wechat](https://github.com/hanfangyuan4396/dify-on-wechat)项目。<br>
 实现手动发送消息通知到微信功能，写入json消息数据到data.jaon文件里，
