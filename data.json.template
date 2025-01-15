@@ -1,0 +1,14 @@
+{
+  "data_list":[
+    {
+    "receiver_name": ["微信备注名"],
+    "message": "测试一下222",
+    "group_name": []
+  },
+  {
+    "receiver_name": ["微信备注名"],
+    "message": "测试一下222",
+    "group_name": ["测试群"]
+  }
+  ]
+}
