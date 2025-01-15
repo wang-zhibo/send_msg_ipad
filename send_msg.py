@@ -27,7 +27,7 @@ class FileChangeHandler(FileSystemEventHandler):
 
 @plugins.register(
     name="send_msg_ipad",
-    desire_priority=180,
+    desire_priority=669,
     hidden=True,
     desc="watchdog监听文件变化发送消息&微信命令发送消息",
     version="0.0.1",
