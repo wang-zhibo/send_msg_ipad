@@ -7,6 +7,8 @@
 itchat和ntchat和ipad 
 
 首次安装后需要  执行执行   更新群成员\和更新好友列表
+如
+<img src="update_list.jpg" width="600" >
 
 
 `file_api` 插件用于[chatgpt-on-wechat](https://github.com/hanfangyuan4396/dify-on-wechat)项目。<br>
