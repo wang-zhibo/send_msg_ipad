@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+
+# Author : zhibo.wang
+# E-mail : gm.zhibo.wang@gmail.com
+# Date   :
+# Desc   :
+
+
 import os
 import json
 import requests
