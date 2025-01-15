@@ -4,12 +4,12 @@
 此项目  在 [仓库地址](https://github.com/Isaac20231231/send_msg) 基础上调整
      
 支持 ipad 协议
+itchat和ntchat和ipad 
 
 首次安装后需要  执行执行   更新群成员\和更新好友列表
 
 
 `file_api` 插件用于[chatgpt-on-wechat](https://github.com/hanfangyuan4396/dify-on-wechat)项目。<br>
-由原来的 flask  改为 fastapi
 实现手动发送消息通知到微信功能，写入json消息数据到data.jaon文件里，
 
 ## python版本
