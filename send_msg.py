@@ -341,25 +341,37 @@ class FileWatcherPlugin(Plugin):
                 final_content = f"{content_at}{content}"
                 self.channel.post_text(self.app_id, to_room_id, final_content, ats="")
             else:
-                # 定向 @ 群成员
                 members = chatroom_info.get("memberList", [])
-                # 先发一条纯文本
-                if not type_:
-                    self.channel.post_text(self.app_id, to_room_id, content, ats="")
+                if len(chatroom_infos) > 1 and len(receiver_names) > 1:
+                    logger.info("多人消息")
+                    # 定向 @ 群成员
+                    # 先发一条纯文本
+                    if not type_:
+                        self.channel.post_text(self.app_id, to_room_id, content, ats="")
 
-                for receiver_name in receiver_names:
+                    for receiver_name in receiver_names:
+                        for mem in members:
+                            if mem.get("nickName") == receiver_name or mem.get("displayName") == receiver_name:
+                                wxid = mem.get("wxid")
+                                content_at = f"@{receiver_name} " if receiver_name else ""
+                                if not type_:
+                                    logger.info(f"手动发送微信群聊消息成功, 发送群聊:{chatroom_name}, 接收者:{receiver_name}, 消息内容：{content}")
+                                    logger.info(f"to_room_id: {to_room_id}, content: {content}, ats: {wxid}")
+                                    end_content = f'{content_at} '
+                                    self.channel.post_text(self.app_id, to_room_id, content_at, ats=wxid)
+                                else:
+                                    combined = f"{content_at}{content}"
+                                    self.channel.post_text(self.app_id, to_room_id, combined, ats=wxid)
+                else:
+                    logger.info("单人消息")
+                    receiver_name = receiver_names[0]
                     for mem in members:
                         if mem.get("nickName") == receiver_name or mem.get("displayName") == receiver_name:
                             wxid = mem.get("wxid")
                             content_at = f"@{receiver_name} " if receiver_name else ""
-                            if not type_:
-                                logger.info(f"手动发送微信群聊消息成功, 发送群聊:{chatroom_name}, 接收者:{receiver_name}, 消息内容：{content}")
-                                logger.info(f"to_room_id: {to_room_id}, content: {content}, ats: {wxid}")
-                                end_content = f'{content_at} '
-                                self.channel.post_text(self.app_id, to_room_id, content_at, ats=wxid)
-                            else:
-                                combined = f"{content_at}{content}"
-                                self.channel.post_text(self.app_id, to_room_id, combined, ats=wxid)
+                            combined = f"{content_at}{content}"
+                            logger.info(f"手动发送微信群聊消息成功, 发送群聊:{chatroom_name}, 接收者:{receiver_name}, 消息内容：{content}")
+                            self.channel.post_text(self.app_id, to_room_id, combined, ats=wxid)
 
     def _send_gewechat_friend_message(self, receiver_names, content):
         if not os.path.exists(self.friend_list_file):
