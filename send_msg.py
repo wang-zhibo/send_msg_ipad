@@ -342,7 +342,7 @@ class FileWatcherPlugin(Plugin):
                 self.channel.post_text(self.app_id, to_room_id, final_content, ats="")
             else:
                 members = chatroom_info.get("memberList", [])
-                if len(chatroom_infos) > 1 and len(receiver_names) > 1:
+                if len(receiver_names) > 1:
                     logger.info("多人消息")
                     # 定向 @ 群成员
                     # 先发一条纯文本
